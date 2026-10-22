@@ -1,0 +1,192 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080812">
+<meta name="description" content="VertexForge builds websites, web apps, games and creative video experiences.">
+<title>VertexForge | Build Beyond Limits</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080812;--panel:#111122;--purple:#a78bfa;--cyan:#67e8f9;--white:#f7f7ff;--muted:#a3a3bb}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{background:var(--bg);color:var(--white);font-family:Manrope,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+header{height:78px;padding:0 7%;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:20;background:#080812dd;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}
+.logo{font-size:20px;font-weight:800;letter-spacing:1px}.logo span{color:var(--purple)}
+nav{display:flex;align-items:center;gap:27px;font-size:13px;color:#d4d4e8}
+nav a:hover{color:var(--cyan)}
+.nav-btn,.btn{padding:13px 19px;border-radius:6px;background:linear-gradient(110deg,#a78bfa,#67e8f9);color:#080812;font-weight:800;font-size:13px;display:inline-block;transition:.25s}
+.btn:hover,.nav-btn:hover{transform:translateY(-3px);box-shadow:0 8px 30px #a78bfa44}
+.menu{display:none;background:none;border:0;color:white;font-size:26px}
+.hero{min-height:650px;width:min(1150px,88%);margin:auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px;padding:70px 0 85px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--cyan);font-weight:700}
+h1{font-size:clamp(48px,6vw,78px);line-height:1.08;letter-spacing:-4px;margin:23px 0}
+.gradient{background:linear-gradient(100deg,#c4b5fd,#818cf8,#67e8f9);color:transparent;background-clip:text}
+.hero p,.section-intro{color:var(--muted);line-height:1.9;font-size:14px;max-width:520px}
+.actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.btn-outline{padding:12px 18px;border:1px solid #ffffff38;border-radius:6px;font-size:13px}
+.visual{height:420px;position:relative;display:grid;place-items:center}
+.orbit{position:absolute;width:340px;height:340px;border:1px solid #a78bfa55;border-radius:50%;animation:spin 18s linear infinite}
+.orbit.two{width:260px;height:390px;border-color:#67e8f955;transform:rotate(50deg);animation-direction:reverse}
+.core{width:190px;height:190px;display:grid;place-items:center;border-radius:40% 60% 60% 40%;background:radial-gradient(circle at 30% 20%,#d8b4fe,#7560d8 45%,#14152e 80%);box-shadow:0 0 90px #8b5cf644;animation:float 5s ease-in-out infinite,morph 8s infinite}
+.core strong{font-size:95px;letter-spacing:-10px}
+.float-card{position:absolute;padding:15px;background:#17172be8;border:1px solid #ffffff25;border-radius:9px;box-shadow:0 15px 40px #0005;font-size:12px;animation:float 5s ease-in-out infinite}
+.float-card small{display:block;color:var(--muted);margin-top:5px}
+.card-one{top:45px;right:0}.card-two{bottom:45px;left:0;animation-delay:-2s}
+.section{padding:100px 7%;width:min(1300px,100%);margin:auto}
+.section-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:38px}
+h2{font-size:clamp(35px,4vw,52px);letter-spacing:-2px;line-height:1.2;margin-top:14px}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:15px}
+.service{grid-column:span 2;min-height:275px;background:linear-gradient(140deg,#17172b,#0e0e19);border:1px solid #ffffff16;border-radius:12px;padding:25px;transition:.3s;position:relative;overflow:hidden}
+.service:nth-child(1),.service:nth-child(5){grid-column:span 3}
+.service:hover{transform:translateY(-7px);border-color:#a78bfa99;box-shadow:0 15px 40px #8b5cf411}
+.service .number{color:var(--cyan);font-size:12px}
+.service .symbol{font-size:34px;margin:24px 0;color:var(--purple)}
+.service h3{font-size:18px;margin-bottom:10px}
+.service p{font-size:13px;color:var(--muted);line-height:1.8}
+.tag{display:inline-block;border:1px solid #ffffff20;color:#c4c4dc;border-radius:4px;padding:5px 8px;font-size:10px;margin:13px 4px 0 0}
+.banner{width:86%;margin:20px auto 100px;padding:75px 8%;text-align:center;border:1px solid #a78bfa44;border-radius:18px;background:radial-gradient(ellipse at top,#30234c,#111122 60%,#0a0a14);position:relative;overflow:hidden}
+.banner h2{font-size:clamp(35px,5vw,62px);margin:20px 0}
+.banner p{max-width:570px;margin:0 auto;color:var(--muted);font-size:14px;line-height:1.9}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:35px}
+.step{border-top:1px solid #ffffff25;padding:23px 8px}
+.step b{color:var(--cyan);font-size:12px}
+.step h3{font-size:16px;margin:14px 0 9px}
+.step p{color:var(--muted);font-size:12px;line-height:1.8}
+.about{display:grid;grid-template-columns:.7fr 1.3fr;gap:55px;align-items:center}
+.monogram{height:250px;display:grid;place-items:center;border:1px solid #a78bfa55;border-radius:50%;font-size:100px;font-weight:800;color:var(--purple);box-shadow:inset 0 0 80px #8b5cf41b,0 0 70px #8b5cf411}
+.about p{color:var(--muted);line-height:2;font-size:14px;margin-top:20px}
+.contact{padding:90px 7%;text-align:center;background:#0d0d19;border-top:1px solid #ffffff12}
+.contact p{max-width:540px;margin:20px auto;color:var(--muted);font-size:14px;line-height:1.9}
+.contact .actions{justify-content:center}
+footer{padding:28px 7%;border-top:1px solid #ffffff15}
+.footer-top,.footer-bottom{display:flex;justify-content:space-between;align-items:center;gap:18px}
+.footer-bottom{border-top:1px solid #ffffff15;margin-top:23px;padding-top:20px;color:#9696ac;font-size:11px;flex-wrap:wrap}
+footer p{color:#a4a4ba;font-size:12px}
+footer strong{color:white}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -12px}}
+@keyframes morph{50%{border-radius:60% 40% 45% 55%}}
+@media(max-width:760px){
+ header{height:70px;padding:0 6%}.menu{display:block}
+ nav{display:none;position:absolute;top:69px;left:0;right:0;background:#10101e;padding:20px 7%;flex-direction:column;align-items:stretch;gap:18px;border-bottom:1px solid #ffffff22}
+ nav.open{display:flex}.nav-btn{text-align:center}
+ .hero{grid-template-columns:1fr;padding:65px 0 55px;gap:10px}
+ h1{letter-spacing:-2.5px}.visual{height:350px}.orbit{width:280px;height:280px}.orbit.two{height:330px;width:220px}
+ .core{width:155px;height:155px}.core strong{font-size:75px}
+ .card-one{top:25px}.card-two{bottom:25px}
+ .section{padding:75px 6%}.section-head{display:block}.section-intro{margin-top:15px}
+ .grid{display:grid;grid-template-columns:1fr}.service,.service:nth-child(1),.service:nth-child(5){grid-column:auto;min-height:250px}
+ .banner{width:88%;padding:55px 7%;margin-bottom:65px}
+ .steps{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr;gap:30px}.monogram{height:180px;width:180px;margin:auto;font-size:75px}
+ .footer-top{align-items:flex-start;flex-direction:column}.footer-bottom{line-height:1.8}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<header>
+  <a href="#home" class="logo">VERTEX<span>FORGE</span></a>
+  <button class="menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+  <nav>
+    <a href="#services">Services</a><a href="#process">Our Process</a><a href="#about">About</a>
+    <a href="#contact" class="nav-btn">Start a Project ↗</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="reveal">
+    <div class="eyebrow">✳ INDEPENDENT DIGITAL STUDIO</div>
+    <h1>Build the<br><span class="gradient">next big thing.</span></h1>
+    <p>We turn ambitious ideas into modern websites, powerful web apps, interactive games and creative video experiences.</p>
+    <div class="actions"><a href="#services" class="btn">Explore Services ↘</a><a href="#contact" class="btn-outline">Let's Collaborate ↗</a></div>
+  </div>
+  <div class="visual reveal">
+    <div class="orbit"></div><div class="orbit two"></div>
+    <div class="core"><strong>VF</strong></div>
+    <div class="float-card card-one">✦ Creative Technology<small>Ideas made interactive</small></div>
+    <div class="float-card card-two">⌘ Build mode: ON<small>Web · Apps · Games · Video</small></div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="section-head reveal"><div><div class="eyebrow">01 / WHAT WE DO</div><h2>Ideas meet<br><span class="gradient">execution.</span></h2></div><p class="section-intro">One creative studio for your digital products and content — built around your vision.</p></div>
+  <div class="grid">
+    <article class="service reveal"><span class="number">01 / DEVELOPMENT</span><div class="symbol">⌘</div><h3>Website Development</h3><p>Responsive, modern websites for brands, creators and businesses.</p><span class="tag">Business Websites</span><span class="tag">Portfolios</span><span class="tag">Landing Pages</span></article>
+    <article class="service reveal"><span class="number">02 / APPLICATIONS</span><div class="symbol">▤</div><h3>Web App Development</h3><p>Interactive applications, custom tools and dashboards with thoughtful UI.</p><span class="tag">Web Apps</span><span class="tag">Dashboards</span></article>
+    <article class="service reveal"><span class="number">03 / INTERACTIVE</span><div class="symbol">🎮</div><h3>Game Development</h3><p>Browser games, playful digital experiences and engaging game interfaces.</p><span class="tag">Browser Games</span><span class="tag">Game UI</span></article>
+    <article class="service reveal"><span class="number">04 / POST-PRODUCTION</span><div class="symbol">▶</div><h3>Video Editing</h3><p>Reels, shorts, promotional videos and cinematic edits that tell a story.</p><span class="tag">Reels & Shorts</span><span class="tag">Promos</span></article>
+    <article class="service reveal"><span class="number">05 / NEXT-GEN CONTENT</span><div class="symbol">✧</div><h3>AI Video Editing</h3><p>AI-assisted visuals, creative video concepts and modern effects for standout content.</p><span class="tag">AI Visuals</span><span class="tag">Creative Effects</span></article>
+  </div>
+</section>
+
+<section class="banner reveal">
+  <div class="eyebrow">02 / OUR PHILOSOPHY</div>
+  <h2>Not just digital.<br><span class="gradient">Distinctly different.</span></h2>
+  <p>Great work brings design, technology and imagination together. We aim to make every project useful, memorable and unmistakably yours.</p>
+</section>
+
+<section class="section" id="process">
+  <div class="eyebrow reveal">03 / THE WORKFLOW</div><h2 class="reveal">From idea to launch.</h2>
+  <div class="steps">
+    <article class="step reveal"><b>STEP 01</b><h3>Discover</h3><p>Understand the idea, audience and project goals.</p></article>
+    <article class="step reveal"><b>STEP 02</b><h3>Design</h3><p>Shape the visual identity and user experience.</p></article>
+    <article class="step reveal"><b>STEP 03</b><h3>Create</h3><p>Build, edit, test and refine the details.</p></article>
+    <article class="step reveal"><b>STEP 04</b><h3>Launch</h3><p>Prepare the final work for delivery and the world.</p></article>
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="monogram reveal">VF</div>
+  <div class="reveal"><div class="eyebrow">04 / ABOUT VERTEXFORGE</div><h2>Built with curiosity.<br><span class="gradient">Driven by creativity.</span></h2><p>VertexForge is a digital studio focused on websites, web apps, games, video editing and AI-assisted creative content. Every project is an opportunity to turn an idea into something real.</p></div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="eyebrow">05 / HAVE AN IDEA?</div>
+  <h2>Let's make it<br><span class="gradient">happen.</span></h2>
+  <p>Tell me about your next website, application, game or video project. Let's start with a conversation.</p>
+  <div class="actions">
+    <a class="btn" href="mailto:aayush.editor18@gmail.com?subject=VertexForge%20Project%20Enquiry">Email Aayush ↗</a>
+    <a class="btn-outline" href="https://www.instagram.com/aayusharya9589/" target="_blank" rel="noopener">Instagram ↗</a>
+  </div>
+  <p><a href="mailto:aayush.editor18@gmail.com">aayush.editor18@gmail.com</a></p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-top"><a href="#home" class="logo">VERTEX<span>FORGE</span></a><p>Build Beyond Limits.</p><a href="#home">Back to top ↑</a></div>
+  <div class="footer-bottom"><span>© <span id="year"></span> VertexForge. All rights reserved.</span><span>Created and Designed by <strong>Aayush Arya</strong></span><a href="https://www.instagram.com/aayusharya9589/" target="_blank" rel="noopener">Instagram ↗</a></div>
+</footer>
+
+<script>
+const menu=document.querySelector('.menu');
+const nav=document.querySelector('nav');
+menu.addEventListener('click',()=>{
+  const opened=nav.classList.toggle('open');
+  menu.setAttribute('aria-expanded',opened);
+  menu.textContent=opened?'✕':'☰';
+});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  nav.classList.remove('open');
+  menu.setAttribute('aria-expanded','false');
+  menu.textContent='☰';
+}));
+document.querySelector('#year').textContent=new Date().getFullYear();
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
